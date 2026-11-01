@@ -6,12 +6,12 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css": ["calm.css"],
+      "css": ["calm/calm.css"],
       "js": [
-        "Readability.js",
-        "Readability-readerable.js",
-        "focus.js",
-        "calm.js"
+        "lib/Readability.js",
+        "lib/Readability-readerable.js",
+        "calm/focus.js",
+        "calm/calm.js"
       ]
     }
   ]
