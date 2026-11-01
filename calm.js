@@ -1,4 +1,4 @@
-console.log("Viento calm.js version 4 loaded");
+console.log("Viento calm.js version 5 loaded");
 
 const CLUTTER_SELECTORS = [
   '[id*="cookie"]',
@@ -17,14 +17,14 @@ const CLUTTER_SELECTORS = [
   'iframe[src*="googlesyndication"]'
 ];
 
-// Everything we have hidden, and whether we are currently paused
 const hiddenItems = new Set();
 let paused = false;
+let canFocus = false;
 
-// The three pieces of the bar (created the first time we need them)
 let bar = null;
 let message = null;
 let toggleBtn = null;
+let focusBtn = null;
 
 function isSafeToHide(el) {
   if (el === document.body || el === document.documentElement) return false;
@@ -59,15 +59,24 @@ function createBar() {
   toggleBtn.type = 'button';
   toggleBtn.addEventListener('click', toggleHidden);
 
-  bar.append(message, toggleBtn);
+  focusBtn = document.createElement('button');
+  focusBtn.type = 'button';
+  focusBtn.textContent = 'Focus view';
+  focusBtn.addEventListener('click', openFocusView);
+
+  bar.append(message, toggleBtn, focusBtn);
   document.body.appendChild(bar);
 }
 
 function updateBar() {
   if (!bar) createBar();
   const n = hiddenItems.size;
-  message.textContent = `Viento hid ${n} item${n === 1 ? '' : 's'}`;
+  message.textContent = n > 0
+    ? `Viento hid ${n} item${n === 1 ? '' : 's'}`
+    : 'Viento is on';
   toggleBtn.textContent = paused ? 'Hide again' : 'Show again';
+  toggleBtn.hidden = n === 0;
+  focusBtn.hidden = !canFocus;
 }
 
 function toggleHidden() {
@@ -89,6 +98,8 @@ function watchForNewClutter() {
 if (document.querySelector('input[type="password"]')) {
   console.log("Viento: login page detected, staying off");
 } else {
+  canFocus = typeof isProbablyReaderable === 'function' && isProbablyReaderable(document);
   declutter();
   watchForNewClutter();
+  if (canFocus) updateBar();
 }

@@ -2,7 +2,17 @@
   "manifest_version": 3,
   "name": "Viento",
   "version": "0.1",
+  "description": "A calmer web for everyone.",
   "content_scripts": [
-    { "matches": ["<all_urls>"], "css": ["calm.css"], "js": ["calm.js"] }
+    {
+      "matches": ["<all_urls>"],
+      "css": ["calm.css"],
+      "js": [
+        "Readability.js",
+        "Readability-readerable.js",
+        "focus.js",
+        "calm.js"
+      ]
+    }
   ]
 }
