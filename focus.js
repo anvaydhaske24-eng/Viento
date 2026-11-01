@@ -3,6 +3,7 @@ console.log("Viento focus.js loaded");
 const FOCUS_CSS = `
   .overlay {
     position: fixed; inset: 0; overflow-y: auto;
+    z-index: 2147483646;
     background: #faf7f0; color: #1f2933;
     font-family: Arial, sans-serif;
   }
@@ -155,6 +156,10 @@ function makeButton(label, ariaLabel, onClick) {
   return b;
 }
 
+function focusIsOpen() {
+  return focusHost !== null;
+}
+
 function openFocusView() {
   if (focusHost) return;
 
@@ -221,6 +226,7 @@ function openFocusView() {
   document.documentElement.style.overflow = 'hidden';
   document.addEventListener('keydown', closeOnEscape);
   exitBtn.focus();
+  document.dispatchEvent(new CustomEvent('viento-focus-change'));
 }
 
 function closeOnEscape(e) {
@@ -235,4 +241,5 @@ function closeFocusView() {
   document.removeEventListener('keydown', closeOnEscape);
   if (openerElement && openerElement.focus) openerElement.focus();
   openerElement = null;
+  document.dispatchEvent(new CustomEvent('viento-focus-change'));
 }

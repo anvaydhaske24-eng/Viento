@@ -62,7 +62,7 @@ function createBar() {
   focusBtn = document.createElement('button');
   focusBtn.type = 'button';
   focusBtn.textContent = 'Focus view';
-  focusBtn.addEventListener('click', openFocusView);
+  focusBtn.addEventListener('click', toggleFocus);
 
   bar.append(message, toggleBtn, focusBtn);
   document.body.appendChild(bar);
@@ -77,6 +77,7 @@ function updateBar() {
   toggleBtn.textContent = paused ? 'Hide again' : 'Show again';
   toggleBtn.hidden = n === 0;
   focusBtn.hidden = !canFocus;
+  updateFocusButton();
 }
 
 function toggleHidden() {
@@ -85,6 +86,20 @@ function toggleHidden() {
   updateBar();
   if (!paused) declutter();
 }
+
+function toggleFocus() {
+  if (focusIsOpen()) closeFocusView();
+  else openFocusView();
+}
+
+function updateFocusButton() {
+  if (!focusBtn) return;
+  const open = focusIsOpen();
+  focusBtn.textContent = open ? 'Exit focus view' : 'Focus view';
+  focusBtn.setAttribute('aria-pressed', String(open));
+}
+
+document.addEventListener('viento-focus-change', updateFocusButton);
 
 let timer = null;
 function watchForNewClutter() {
