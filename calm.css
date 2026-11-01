@@ -1,0 +1,36 @@
+.viento-hidden {
+  display: none !important;
+}
+
+#viento-bar {
+  all: initial;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #0f5257;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+#viento-bar button {
+  background: #ffffff;
+  color: #0f5257;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#viento-bar button:focus-visible {
+  outline: 3px solid #ffbf00;
+}
