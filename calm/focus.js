@@ -24,11 +24,11 @@ const FOCUS_CSS = `
   .topbar button[hidden] { display: none; }
 
   .page {
-    max-width: 680px; margin: 0 auto;
+    max-width: 760px; margin: 0 auto;
     padding: 88px 20px 96px;
-    font-size: 20px; line-height: 1.8; letter-spacing: 0.02em;
+    font-size: 18px; line-height: 1.9; letter-spacing: 0;
   }
-  h1 { font-size: 1.6em; line-height: 1.3; margin: 0 0 1.2em; }
+  h1 { font-size: 1.5em; line-height: 1.35; margin: 0 0 1.2em; }
   .article p { margin: 0 0 1.2em; }
   .article img { max-width: 100%; height: auto; border-radius: 8px; }
   .article a { color: #0f5257; }
@@ -56,6 +56,19 @@ const FOCUS_CSS = `
   .content { padding: 4px 18px 18px; border-top: 1px solid rgba(128, 128, 128, 0.3); }
   .content p { margin: 0 0 1.2em; }
   .content img { max-width: 100%; height: auto; }
+
+  
+  .page {
+    font-family: 'Viento Lexend Giga', Verdana, Arial, sans-serif;
+    font-weight: 400;
+  }
+  h1,
+  .article h2, .article h3, .article h4, .article h5, .article h6,
+  .content h2, .content h3, .content h4, .content h5, .content h6,
+  .card summary {
+    font-family: 'Viento Lexend Exa', 'Viento Lexend Giga', Verdana, Arial, sans-serif;
+    font-weight: 600;
+  }
 `;
 
 let focusHost = null;
@@ -159,9 +172,33 @@ function makeButton(label, ariaLabel, onClick) {
 function focusIsOpen() {
   return focusHost !== null;
 }
+// Make the bundled fonts available to the page
+function ensureFonts() {
+  if (document.getElementById('viento-fonts')) return;
+  const bodyUrl = chrome.runtime.getURL('calm/fonts/LexendGiga.ttf');
+  const headingUrl = chrome.runtime.getURL('calm/fonts/LexendExa.ttf');
+  const s = document.createElement('style');
+  s.id = 'viento-fonts';
+  s.textContent = `
+    @font-face {
+      font-family: 'Viento Lexend Giga';
+      src: url('${bodyUrl}') format('truetype');
+      font-weight: 100 900;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Viento Lexend Exa';
+      src: url('${headingUrl}') format('truetype');
+      font-weight: 100 900;
+      font-display: swap;
+    }
+  `;
+  (document.head || document.documentElement).appendChild(s);
+}
 
 function openFocusView() {
   if (focusHost) return;
+  ensureFonts();
 
   const article = new Readability(document.cloneNode(true)).parse();
   if (!article) {
