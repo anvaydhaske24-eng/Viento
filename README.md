@@ -130,6 +130,15 @@ Automatically highlights the most important sentences on a webpage, helping user
 | Rule-Based Scoring | Assigns importance scores using keywords, sentence structure, numbers, and context. |
 | `TreeWalker` and `Range` | Locate sentence text and wrap selected text with highlight elements. |
 
+### Tested on
+
+| Site | Highlight the gist |
+|---|---|
+| Wikipedia article | 👍 |
+| The Hindu | 👍 |
+| Times of India | 👎 |
+
+
 ## Known Limitations
 
 - Gist Mode uses rule-based scoring rather than advanced AI-based understanding.
