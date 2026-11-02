@@ -1,4 +1,6 @@
-# Viento
+
+
+<img src="icons/logo.png" alt="Viento logo" width="300" align="center"> 
 Providing a calmer browsing experiance for nuerodivergent minds
 
 ## Calm mode
@@ -6,9 +8,13 @@ Providing a calmer browsing experiance for nuerodivergent minds
 Provides an easier and more focused browsing experience for neurodivergent minds(ADHD, Autism, dyslexia, etc.).
 
 ### What it does
+  
 
 - **Hides clutter:** cookie banners, newsletter pop-ups and common ad containers
   are hidden. Items that load late are caught too.
+  | Before | After |
+  |---|---|
+  | <img src="docs/hide-before.png" alt="A busy news page with ads" width="400"> | <img src="docs/hide-after.png" alt="The same page with clutter hidden" width="400"> |
 - **"What I hid" bar:** a small bar in the bottom-right corner shows how many
   items were hidden. **Show again** brings them back, and **Hide again** removes
   them again. Nothing is ever deleted from the page.
@@ -16,9 +22,17 @@ Provides an easier and more focused browsing experience for neurodivergent minds
 1. on article pages, one click opens a clean reading page with
   only the article. Click the button again (or press **Esc**) to return to the
   original page.
-2. **Outline view:** if the article has enough headings, Focus view shows one
+
+  | Before | After |
+  |---|---|
+  | <img src="docs/focus-before.png" width="400"> | <img src="docs/focus-after.png" width="400"> |
+3. **Outline view:** if the article has enough headings, Focus view shows one
   card per section, with a thumbnail and heading. Click a card to open only that
   section. **Show full article** switches to the whole text.
+  
+  | Before | After |
+  |---|---|
+  | <img src="docs/outline-before.png" width="400"> | <img src="docs/outline-after.png" width="400"> |
 
 ### How to use it
 
