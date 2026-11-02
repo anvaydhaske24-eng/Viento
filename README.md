@@ -64,5 +64,55 @@ Provides an easier and more focused browsing experience for neurodivergent minds
 
 ### Third-party code
 
+## Hover mode
+
+Makes links and buttons easier to see and hear, for people with low vision, limited hand control, or who find it easier to listen than to read.
+
+### What it does
+
+- **Enlarges what you point at:** the link or button under the mouse grows by half and gets a solid teal background, white text and a yellow border. It is easy to read on light and dark pages, and it covers whatever is behind it. It shrinks back when the mouse leaves.
+- **Reads it aloud:** after the mouse rests on a link or button for a moment, its label is spoken. Moving away stops the voice, so voices never overlap. Icon-only buttons with no text are read from their hidden label (`aria-label`, image `alt`, or icon title). If there is none, Viento says "button" or "link".
+- **Shows a caption:** the words being read also appear in the bottom-left corner, so you can see what Viento is saying.
+
+### How to use it
+
+1. Open any website with the extension installed.
+2. Move the mouse over a link or button and hold it still for about a second.
+3. The item enlarges, its label is read aloud, and the caption appears.
+4. Move the mouse away to stop.
+
+### How it works
+
+| Part | File | What it does |
+|---|---|---|
+| Hover, label and caption logic | `hover.js` | Watches the mouse, works out the label, enlarges the item and asks for speech |
+| Voice | `background.js` | Speaks the label using Chrome's built-in text-to-speech |
+| Enlarge and highlight styles | `hover.css` | The teal background, yellow border and grow effect |
+
+If Chrome's extension voice fails, `hover.js` falls back to the page's built-in speech and shows a short message in the corner explaining any problem.
+
+### Safety and privacy
+
+- Viento sends no page content anywhere and stores nothing. Only the label of the item you hover is passed to Chrome's text-to-speech.
+- Which voice is used, and whether it works offline, depends on the voices installed in Chrome and on the computer.
+- Hover mode **stays off on pages with a password field**, so login forms are never touched.
+- The enlarged look is only a temporary style. Nothing on the page is changed or deleted.
+
+### Tested on
+
+| Site | Enlarge | Read aloud |
+|---|---|---|
+| Wikipedia article | 👍 | 👍 |
+| The Hindu | 👍 | 👍 |
+| Times of India | 👍 | 👍 |
+
+### Known limitations
+
+- Very large links (full-width cards and banners) get a border but are not enlarged, and neither are links that wrap over several lines. This stops the page layout from jumping.
+- The backup voice (the page's built-in speech) only works after you have clicked or typed on the page once. The main voice does not have this rule.
+- Speech language depends on the voices installed in the browser or operating system.
+- Settings such as on/off, voice speed and language are not in a popup yet.
+
+
 Focus view uses [Mozilla Readability](https://github.com/mozilla/readability)
 (Apache License 2.0). Its license notice is kept at the top of the library files.
