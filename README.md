@@ -74,6 +74,9 @@ Provides an easier and more focused browsing experience for neurodivergent minds
 Makes links and buttons easier to see and hear, for people with low vision, limited hand control, or who find it easier to listen than to read.
 
 ### What it does
+| Before | After |
+|---|---|
+| <img src="docs/outline-before.png" width="400"> | <img src="docs/hover-after.png" width="400"> |
 
 - **Enlarges what you point at:** the link or button under the mouse grows by half and gets a solid teal background, white text and a yellow border. It is easy to read on light and dark pages, and it covers whatever is behind it. It shrinks back when the mouse leaves.
 - **Reads it aloud:** after the mouse rests on a link or button for a moment, its label is spoken. Moving away stops the voice, so voices never overlap. Icon-only buttons with no text are read from their hidden label (`aria-label`, image `alt`, or icon title). If there is none, Viento says "button" or "link".
@@ -117,6 +120,9 @@ If Chrome's extension voice fails, `hover.js` falls back to the page's built-in 
 Automatically highlights the most important sentences on a webpage, helping users understand lengthy content quickly and focus on the key information.
 
 ## Gist Mode Features
+| Before | After |
+|---|---|
+| <img src="docs/gist-before.png" width="400"> | <img src="docs/gist-after.png" width="400"> |
 
 - **Automatic Highlighting:** Important sentences are highlighted automatically when a webpage loads. No manual button or user interaction is required.
 - **Important Information Detection:** Identifies meaningful sentences using rule-based scoring techniques.
