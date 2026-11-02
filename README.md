@@ -1,7 +1,48 @@
 
+# <img src="icons/logo.png" alt="Viento logo" width="50" align="middle"> Viento
+ 
+Providing a calmer browsing experience for neurodivergent minds
 
-<img src="icons/logo.png" alt="Viento logo" width="300" align="center"> 
-Providing a calmer browsing experiance for nuerodivergent minds
+It has three parts that work together:
+
+- **Calm mode** 
+- **Hover mode** 
+- **Gist mode** 
+
+## Contents
+
+- [How Viento addresses the challenge](#how-viento-addresses-the-challenge)
+- [Install](#install)
+- [Calm mode](#calm-mode) · [Hover mode](#hover-mode) · [Gist mode](#gist-mode)
+- [Browser support](#browser-support)
+- [Security and privacy](#security-and-privacy)
+- [Future improvements](#future-improvements)
+- [Team](#team)
+- [Credits and license](#credits-and-license)
+
+  
+## How Viento addresses the challenge
+
+| Barrier | What gets in the way | How Viento helps |
+|---|---|---|
+| **Disabilities** (low vision, dyslexia, ADHD, autism) | Clutter, dense text, tiny click targets, sensory overload | Calm mode removes distractions, Focus view shows only the article, Hover mode enlarges what you point at, and Gist mode marks key sentences |
+| **Limited technical literacy** | Confusing pages, unclear buttons, settings to learn | Nothing to configure, one click for Focus view, a bar that tells you what was hidden and lets you undo it, and labels spoken aloud |
+
+## Install
+
+1. Download the latest zip from the [Releases](../../releases) page, or click
+   **Code > Download ZIP** on this page. Unzip it.
+2. In Chrome, open `chrome://extensions`.
+3. Turn on **Developer mode** (top right).
+4. Click **Load unpacked** and choose the folder that contains `manifest.json`.
+5. Refresh any pages that were already open.
+
+**To check it works:** open a Wikipedia article. A small bar should appear in the
+bottom-right corner, and moving your mouse over a link should enlarge it.
+
+
+## Browser support
+Viento currently only supports google chrome.
 
 ## Calm mode
 
@@ -18,15 +59,15 @@ Provides an easier and more focused browsing experience for neurodivergent minds
 - **"What I hid" bar:** a small bar in the bottom-right corner shows how many
   items were hidden. **Show again** brings them back, and **Hide again** removes
   them again. Nothing is ever deleted from the page.
-- **Focus view:** 
-1. on article pages, one click opens a clean reading page with
+- **Focus View**
+1. **Focus view:** on article pages, one click opens a clean reading page with
   only the article. Click the button again (or press **Esc**) to return to the
   original page.
 
   | Before | After |
   |---|---|
   | <img src="docs/focus-before.png" width="400"> | <img src="docs/focus-after.png" width="400"> |
-3. **Outline view:** if the article has enough headings, Focus view shows one
+2. **Outline view:** if the article has enough headings, Focus view shows one
   card per section, with a thumbnail and heading. Click a card to open only that
   section. **Show full article** switches to the whole text.
   
@@ -130,7 +171,7 @@ Automatically highlights the most important sentences on a webpage, helping user
 - **Number and Date Recognition:** Gives additional importance to sentences containing numbers, percentages, dates, and other useful information.
 - **Context-Based Scoring:** Considers sentence length, repeated topic words, and the position of sentences within paragraphs to identify potentially important information.
 - **Wikipedia Support:** Works on Wikipedia pages and allows important sentences containing hyperlinks to be highlighted.
-- **Dynamic Page Support:** Uses a MutationObserver to detect changes in webpage content and process newly added content.
+
 
 ## How to Use
 
@@ -170,12 +211,12 @@ Automatically highlights the most important sentences on a webpage, helping user
 
 # Security and Privacy
 
-Viento runs entirely in your browser. It collects no data, needs no account, and sends nothing to any server. All scripts and fonts are bundled inside the extension.
+Viento runs entirely in your browser. It collects no data, needs no account, and sends nothing to any server, though, some system or browser voices may process speech online. Choose an offline voice if this matters. All scripts and fonts are bundled inside the extension.
 
 - **Calm mode** and **Focus view** process page content locally.
 - **Hover read-aloud** uses your browser's text-to-speech voices.
-- **Highlight the gist** uses a built-in word list and makes no network requests.
-- Pages with password fields are left untouched, and hidden items can always be restored.
+- **Highlight the gist** uses a built-in rules and makes no network requests.
+- Pages with password fields are left untouched for calm mode only, and hidden items can always be restored.
   
 # Future Improvements
 
@@ -195,7 +236,6 @@ Viento runs entirely in your browser. It collects no data, needs no account, and
 
 ### Gist highlighting
 - Integrate AI-based sentence understanding for more accurate highlighting.
-- Highlight key topic words as well as signal words.
 - Add customisable highlighting levels.
 - Support more languages.
 - Work inside Focus view and on pages that load content dynamically.
@@ -206,7 +246,21 @@ Viento runs entirely in your browser. It collects no data, needs no account, and
 - Add warnings for suspicious pages, to help people with limited technical literacy avoid scams.
 - Improve compatibility with different browsing modes and dynamically loaded content.
 
+## Team
 
-### Third-party code
-Focus view uses [Mozilla Readability](https://github.com/mozilla/readability)
-(Apache License 2.0). Its license notice is kept at the top of the library files.
+| Name | Role |
+|---|---|
+| Anvay Dhaske | Calm mode (clutter hiding, Focus view, outline view) |
+| Tanmay Tugnawat | Hover mode (enlarge and read aloud) |
+| Pritesh Jaiswal and Hans Biswas | Gist mode (sentence highlighting) |
+| Anvay and Tanmay | Testing, README, demo video |
+
+## Credits and license
+
+- **Mozilla Readability** finds the article in Focus view
+  ([Apache License 2.0](https://github.com/mozilla/readability)). Its notice is
+  kept at the top of the library files.
+- **Lexend Exa and Lexend Giga** fonts are used in Focus view
+  ([SIL Open Font License](calm/fonts/OFL.txt)). [Keep only if the fonts are in
+  the final build.]
+- Viento is released under the [MIT License](LICENSE).
