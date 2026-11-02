@@ -201,7 +201,7 @@ Viento runs entirely in your browser. It collects no data, needs no account, and
 - Work inside Focus view and on pages that load content dynamically.
 
 ### Across the whole project
-- Add a settings popup, so all features can be turned on and off in one place.
+
 - Test with more users, including people with dyslexia, ADHD, autism, and older adults, and improve the design from their feedback.
 - Add warnings for suspicious pages, to help people with limited technical literacy avoid scams.
 - Improve compatibility with different browsing modes and dynamically loaded content.
