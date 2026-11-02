@@ -62,7 +62,7 @@ Provides an easier and more focused browsing experience for neurodivergent minds
 | Times of India | 👍 | 👎 | 👎 |
 | Economic Times | 👍 | 👎 | 👎 |
 
-### Third-party code
+
 
 ## Hover mode
 
@@ -113,6 +113,6 @@ If Chrome's extension voice fails, `hover.js` falls back to the page's built-in 
 - Speech language depends on the voices installed in the browser or operating system.
 - Settings such as on/off, voice speed and language are not in a popup yet.
 
-
+### Third-party code
 Focus view uses [Mozilla Readability](https://github.com/mozilla/readability)
 (Apache License 2.0). Its license notice is kept at the top of the library files.
