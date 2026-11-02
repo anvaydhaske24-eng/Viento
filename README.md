@@ -168,6 +168,15 @@ Automatically highlights the most important sentences on a webpage, helping user
 - Results may vary depending on the structure and layout of a webpage.
 - Dynamic content may take a short time to be detected and highlighted.
 
+# Security and Privacy
+
+Viento runs entirely in your browser. It collects no data, needs no account, and sends nothing to any server. All scripts and fonts are bundled inside the extension.
+
+- **Calm mode** and **Focus view** process page content locally.
+- **Hover read-aloud** uses your browser's text-to-speech voices.
+- **Highlight the gist** uses a built-in word list and makes no network requests.
+- Pages with password fields are left untouched, and hidden items can always be restored.
+  
 # Future Improvements
 
 ### Calm mode
