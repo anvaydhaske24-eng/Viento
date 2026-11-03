@@ -261,6 +261,5 @@ Viento runs entirely in your browser. It collects no data, needs no account, and
   ([Apache License 2.0](https://github.com/mozilla/readability)). Its notice is
   kept at the top of the library files.
 - **Lexend Exa and Lexend Giga** fonts are used in Focus view
-  ([SIL Open Font License](calm/fonts/OFL.txt)). [Keep only if the fonts are in
-  the final build.]
+  ([SIL Open Font License](calm/fonts/OFL.txt)).
 - Viento is released under the [MIT License](LICENSE).
